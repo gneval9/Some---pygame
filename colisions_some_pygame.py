@@ -1,4 +1,5 @@
 #Maded and developed by gneval9 Software
+
 import pygame, sys
 pygame.init()
 
