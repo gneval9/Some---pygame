@@ -3,7 +3,6 @@
 import pygame, sys
 pygame.init()
 
-#Colores
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
