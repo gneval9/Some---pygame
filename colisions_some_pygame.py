@@ -1,6 +1,9 @@
 #Maded and developed by gneval9 Software
 
-import pygame, sys
+import pygame
+import sys
+import random
+
 pygame.init()
 
 BLACK = (0, 0, 0)
@@ -15,9 +18,11 @@ cord_y = 400
 speed_x = 0
 speed_y = 0
 
-size = (800, 500)
+#size = (800, 500)
+size_x = random.randint(200, 1400)
+size_y = random.randint(200, 1400)
 
-screen = pygame.display.set_mode(size)
+screen = pygame.display.set_mode((size_x, size_y))
 
 while True:
     for event in pygame.event.get():
@@ -55,9 +60,9 @@ while True:
 
 
     borde_arriba = pygame.draw.rect(screen, BLACK, (0, 0, 1000, 1))
-    borde_abajo = pygame.draw.rect(screen, BLACK, (0, 498, 1000, 1))
+    borde_abajo = pygame.draw.rect(screen, BLACK, (0, size_y, 1000, 1))
     borde_izquierda = pygame.draw.rect(screen, BLACK, (0, 0, 1, 1000))
-    borde_derecha = pygame.draw.rect(screen, BLACK, (760, 0, 1, 1000))
+    borde_derecha = pygame.draw.rect(screen, BLACK, (size_x, 0, 1, 1000))
     circulo = pygame.draw.circle(screen, RED, (cord_x, cord_y), radius=40)
     
 
@@ -66,7 +71,7 @@ while True:
             cord_y += 1
 
     if circulo.colliderect(borde_abajo):
-        if cord_y > 458:
+        if cord_y > size_y - 39:
             cord_y -= 1
 
     if circulo.colliderect(borde_izquierda):
@@ -74,7 +79,7 @@ while True:
             cord_x += 1
 
     if circulo.colliderect(borde_derecha):
-        if cord_x > 759:
+        if cord_x > size_x - 39:
             cord_x -= 1
 
 
