@@ -20,15 +20,15 @@ RED = (255, 0, 0)
 YELLOW = (255, 255, 0)
 GREEN = (0, 255, 0)
 
-cord_x = 700
-cord_y = 400
-
 speed_x = 0
 speed_y = 0
 
 #size = (800, 500)
 size_x = random.randint(200, 1400)
 size_y = random.randint(200, 1400)
+
+cord_x = size_x / 2
+cord_y = size_y / 2
 
 screen = pygame.display.set_mode((size_x, size_y))
 
