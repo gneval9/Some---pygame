@@ -20,6 +20,8 @@ RED = (255, 0, 0)
 YELLOW = (255, 255, 0)
 GREEN = (0, 255, 0)
 
+DASH_COLOR = (225, 0, 0)
+
 speed_x = 0
 speed_y = 0
 
@@ -67,11 +69,17 @@ while True:
     cord_y += speed_y
 
 
+    circulo = pygame.draw.circle(screen, RED, (cord_x, cord_y), radius=40)
+    dash_orb = pygame.draw.circle(screen, DASH_COLOR, (cord_x, cord_y), radius=10)
+
+
+#Colisiones
+
     borde_arriba = pygame.draw.rect(screen, BLACK, (0, 0, 1000, 1))
     borde_abajo = pygame.draw.rect(screen, BLACK, (0, size_y, 1000, 1))
     borde_izquierda = pygame.draw.rect(screen, BLACK, (0, 0, 1, 1000))
     borde_derecha = pygame.draw.rect(screen, BLACK, (size_x, 0, 1, 1000))
-    circulo = pygame.draw.circle(screen, RED, (cord_x, cord_y), radius=40)
+
     
 
     if circulo.colliderect(borde_arriba):
