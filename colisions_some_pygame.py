@@ -14,18 +14,25 @@ import random
 
 pygame.init()
 
+
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 YELLOW = (255, 255, 0)
 GREEN = (0, 255, 0)
+RGB = (R, G, B)
 
-DASH_COLOR = (225, 0, 0)
+
+DR = 255
+DG = 000
+DB = 000
+DASH_COLOR = (DR, DG, DB)
+
 
 speed_x = 0
 speed_y = 0
 
-#size = (800, 500)
+
 size_x = random.randint(200, 1400)
 size_y = random.randint(200, 1400)
 
@@ -63,14 +70,25 @@ while True:
 
     screen.fill(BLACK)
 
-   
-
+    R = random.randint(0, 255)
+    G = random.randint(0, 255)
+    B = random.randint(0, 255)
+    
     cord_x += speed_x
     cord_y += speed_y
+
+    DR += 5
+    DG += 5
+    DB += 5
+    
+    if DR = 255 and DG = 255 and DB = 255:
+        DASH_COLOR == RGB
 
 
     circulo = pygame.draw.circle(screen, RED, (cord_x, cord_y), radius=40)
     dash_orb = pygame.draw.circle(screen, DASH_COLOR, (cord_x, cord_y), radius=10)
+
+
 
 
 #Colisiones
@@ -97,6 +115,13 @@ while True:
     if circulo.colliderect(borde_derecha):
         if cord_x > size_x - 39:
             cord_x -= 1
+
+
+
+
+
+
+
 
 
     pygame.display.flip()
