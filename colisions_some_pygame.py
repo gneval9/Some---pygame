@@ -20,7 +20,7 @@ WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 YELLOW = (255, 255, 0)
 GREEN = (0, 255, 0)
-RGB = (R, G, B)
+
 
 
 DR = 255
@@ -73,6 +73,8 @@ while True:
     R = random.randint(0, 255)
     G = random.randint(0, 255)
     B = random.randint(0, 255)
+
+    RGB = (R, G, B)
     
     cord_x += speed_x
     cord_y += speed_y
@@ -81,13 +83,13 @@ while True:
     DG += 5
     DB += 5
     
-    if DR = 255 and DG = 255 and DB = 255:
+    if DR == 255 and DG == 255 and DB == 255:
         DASH_COLOR == RGB
 
     DR == DR + 1
     DG == DG + 1
     DB == DB + 1
-    
+
 
 
     circulo = pygame.draw.circle(screen, RED, (cord_x, cord_y), radius=40)
