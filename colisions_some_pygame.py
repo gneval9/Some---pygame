@@ -84,6 +84,11 @@ while True:
     if DR = 255 and DG = 255 and DB = 255:
         DASH_COLOR == RGB
 
+    DR == DR + 1
+    DG == DG + 1
+    DB == DB + 1
+    
+
 
     circulo = pygame.draw.circle(screen, RED, (cord_x, cord_y), radius=40)
     dash_orb = pygame.draw.circle(screen, DASH_COLOR, (cord_x, cord_y), radius=10)
