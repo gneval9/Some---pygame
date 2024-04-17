@@ -414,7 +414,6 @@ def play():
                 cord_x -= 8
 
         #Actualizar pantalla
-        global time += 0.016
         pygame.display.flip()
         clock.tick(60)
     
