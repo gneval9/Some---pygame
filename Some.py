@@ -17,8 +17,7 @@ import tkinter as tk
 import threading
 import sys
 
-
-global time
+time = 0
 
 #Definir colores
 
@@ -144,6 +143,8 @@ def menu():
 
 def go():
 
+    global time
+
     speedup = 0.1
 
     size = (800, 500)
@@ -220,6 +221,8 @@ def go():
 
 def play():
 
+    time = 0
+    
     pygame.init()
 
     game_over = False
@@ -414,6 +417,8 @@ def play():
                 cord_x -= 8
 
         #Actualizar pantalla
+        global time
+        time += 0.016
         pygame.display.flip()
         clock.tick(60)
     
