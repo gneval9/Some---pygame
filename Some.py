@@ -18,7 +18,7 @@ import threading
 import sys
 
 
-time = 0
+global time
 
 #Definir colores
 
