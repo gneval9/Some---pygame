@@ -8,7 +8,7 @@
 #                   ___) | (_) |  _| |_ \ V  V / (_| | | |  __/
 #                  |____/ \___/|_|  \__| \_/\_/ \__,_|_|  \___|
 
-#(17-04-2024)
+#(18-04-2024)
 
 import pygame
 import random
@@ -16,8 +16,12 @@ import time
 import tkinter as tk
 import threading
 import sys
+import math
+
+game_version = 1.0
 
 time = 0
+time0 = 0
 
 #Definir colores
 
@@ -39,6 +43,7 @@ def menu():
 
     game_over = False
 
+    global game_version 
 
     speedup = 0.1
 
@@ -98,6 +103,12 @@ def menu():
         screen.blit(some, some_rect)
 
         font = pygame.font.Font(None, 30)
+        ver = font.render(f"Ver. {game_version}", None, WHITE)
+        ver_rect = ver.get_rect(center=(47, 20))
+        screen.blit(ver, ver_rect)
+
+
+        font = pygame.font.Font(None, 30)
         g9 = font.render("Made and developed by gneval9 Software (04-2023)", None, WHITE)
         g9_rect = g9.get_rect(center=(400, 480))
         screen.blit(g9, g9_rect)
@@ -143,8 +154,6 @@ def menu():
 
 def go():
 
-    global time
-
     speedup = 0.1
 
     size = (800, 500)
@@ -164,7 +173,7 @@ def go():
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                sys.exit()
+                pass
 
             mouse_pressed = False
             mouse_pos = pygame.mouse.get_pos()
@@ -184,7 +193,7 @@ def go():
         screen.blit(text, text_rect)
 
         font = pygame.font.Font(None, 30)
-        text = font.render(f"Total time: {time}", None, WHITE)
+        text = font.render(f"Total time: {time0} sec.", None, WHITE)
         text_rect = text.get_rect(center=(400, 240))
         screen.blit(text, text_rect)
 
@@ -221,11 +230,15 @@ def go():
 
 def play():
 
-    time = 0
-    
     pygame.init()
 
     game_over = False
+
+    global time
+    time = 0
+
+    global time0
+    time0 = 0
 
     speedup = 0.1
 
@@ -379,8 +392,8 @@ def play():
         player = pygame.draw.circle(screen, player_color, (cord_x, cord_y), 30)
 
         font = pygame.font.Font(None, 30)
-        text = font.render(f"time:", None, WHITE)
-        text_rect = text.get_rect(center=(140, 20))
+        text = font.render(f"Time: {time0} sec.", None, WHITE)
+        text_rect = text.get_rect(center=(80, 20))
         screen.blit(text, text_rect)
 
         
@@ -417,10 +430,12 @@ def play():
                 cord_x -= 8
 
         #Actualizar pantalla
-        global time
-        time += 0.016
+  
+        time += 0.0169
+        time0 = round(time, 1)
         pygame.display.flip()
         clock.tick(60)
+        print(time0)
     
        
 
